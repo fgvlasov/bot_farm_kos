@@ -3,23 +3,14 @@ import './App.css';
 
 function App() {
   const [price, setPrice] = useState(0.0);
-  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setPrice((prevPrice) => prevPrice + 0.001);
-      setCounter((prevCounter) => prevCounter + 1);
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
-
-  const formatTime = (counter) => {
-    const hours = Math.floor(counter / 3600);
-    const minutes = Math.floor((counter % 3600) / 60);
-    const seconds = counter % 60;
-    return `${hours}h ${minutes}m ${seconds}s`;
-  };
 
   return (
     <div className="container">
